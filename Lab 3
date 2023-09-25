@@ -1,1 +1,11 @@
+function getIP{
+    (Get-NetIPAddress).ipv4address | Select-String "192*"
+}
 
+$IP = getIP
+$User = $env:Username
+$ver = (Get-Host).Version
+$HostName = $env:COMPUTERNAME
+$Date = Get-Date -Format "dddd MMMM dd yyyy"
+
+$Body = "This machine's IP is $IP. User is $User. Hostnaname is $HostName. Powershell is $ver. Today's Date is $Date."
