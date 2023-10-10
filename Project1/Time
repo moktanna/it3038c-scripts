@@ -1,0 +1,17 @@
+function updateTime() {
+  const now = new Date();
+
+const hours = now.getHours();
+const minutes = now.getMinutes();
+const seconds = now.getSeconds();
+
+const currentTime = `${hours}:${minutes}:${seconds}`;
+
+document.getElementById("header").textContent = `Current Time: ${currentTime}`;
+}
+
+// Call updateTime every second to update the time. Changes the seconds 
+setInterval(updateTime, 1000);
+
+// Initial call to display the time immediately. Without this, the time wouldn't be updating. 
+updateTime();
