@@ -9,9 +9,9 @@ const currentTime = `${hours}:${minutes}:${seconds}`;
 
 document.getElementById("header").textContent = `Current Time: ${currentTime}`;
 }
-// Call updateTime every second to update the time. The seconds change. 
+
+// Call updateTime every second to update the time. Changes the seconds 
 setInterval(updateTime, 1000);
 
-
-// Initial call to display the time immediately. Without this, the time wouldn't be changing constantly
+// Initial call to display the time immediately. Without this, the time wouldn't be updating. 
 updateTime();
