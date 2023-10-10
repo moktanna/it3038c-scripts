@@ -1,21 +1,17 @@
 function updateTime() {
-    const now = new Date();
+  const now = new Date();
 
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
+const hours = now.getHours();
+const minutes = now.getMinutes();
+const seconds = now.getSeconds();
 
-    const formattedHours = hours < 10 ? `0${hours}` : `${hours}`;
-    const formattedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-    const formattedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+const currentTime = `${hours}:${minutes}:${seconds}`;
 
-    const currentTime = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-
-    document.getElementById("header").textContent = `Current Time: ${currentTime}`;
+document.getElementById("header").textContent = `Current Time: ${currentTime}`;
 }
-
-// Call updateTime every second to update the time
+// Call updateTime every second to update the time. The seconds change. 
 setInterval(updateTime, 1000);
 
-// Initial call to display the time immediately
+
+// Initial call to display the time immediately. Without this, the time wouldn't be changing constantly
 updateTime();
