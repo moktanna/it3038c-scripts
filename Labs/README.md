@@ -3,8 +3,9 @@ Let's explore the Python Package Index (PyPI) and choose a package. For this exa
 First, let's install the Pillow package:
 
 Code: 
+```bash
 pip install Pillow
-
+```
 Now, let's create a Python script that demonstrates three different usages of the Pillow library: 
 
 First, you need to be able to open and display an Image. Make sure to replace the example.jpg with the real image name. 
