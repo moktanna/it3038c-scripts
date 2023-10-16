@@ -10,8 +10,10 @@ Now, let's create a Python script that demonstrates three different usages of th
 First, you need to be able to open and display an Image. Make sure to replace the example.jpg with the real image name. 
 
 Code:
+```bash
 image = Image.open("/full path to image/example.jpg")
 image.load()
+```
 
 Something you can change about this image is the size. You can resize an image to a specific width and height using the resize method. For example:
 
