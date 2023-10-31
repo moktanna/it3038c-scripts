@@ -1,0 +1,17 @@
+from urllib.request import urlopen
+# Define the URL to scrape
+url = "https://www.sgs.com/en"
+# Open the web page using urlopen()
+page = urlopen(url)
+# Read the HTML content and decode it to a string using UTF-8
+html_bytes = page.read()
+html = html_bytes.decode("utf-8")
+# Find the start index of the <title> tag
+title_start_index = html.find("<title>") + len("<title>")
+# Find the end index of the </title> tag
+title_end_index = html.find("</title>")
+# Extract the title by slicing the HTML string
+title = html[title_start_index:title_end_index]
+# Print the extracted title
+print(title)
+
