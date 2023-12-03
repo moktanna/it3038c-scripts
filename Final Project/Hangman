@@ -47,7 +47,7 @@ def draw_hangman(attempts):
     # for every wrong guess it will start drawing the hangman. Like first the head and so on.
     hangman_graphics = [
         """
-         -----
+         _ _ 
          |   |
              |
              |
@@ -55,7 +55,7 @@ def draw_hangman(attempts):
              |
         """,
         """
-         -----
+         _ _ 
          |   |
          O   |
              |
@@ -63,7 +63,7 @@ def draw_hangman(attempts):
              |
         """,
         """
-         -----
+         _ _ 
          |   |
          O   |
          |   |
@@ -71,7 +71,7 @@ def draw_hangman(attempts):
              |
         """,
         """
-         -----
+         _ _ 
          |   |
          O   |
         /|   |
@@ -79,7 +79,7 @@ def draw_hangman(attempts):
              |
         """,
         """
-         -----
+         _ _ 
          |   |
          O   |
         /|\\  |
@@ -87,7 +87,7 @@ def draw_hangman(attempts):
              |
         """,
         """
-         -----
+         _ _ 
          |   |
          O   |
         /|\\  |
@@ -95,7 +95,7 @@ def draw_hangman(attempts):
              |
         """,
         """
-         -----
+         _ _ 
          |   |
          O   |
         /|\\  |
@@ -117,14 +117,14 @@ class HangmanGUI:
         self.guessed_letters = []
         self.attempts = 6
 
-        self.label = tk.Label(master, text="Welcome to Hangman!\nClue: " + self.clue, font=12)
+        self.label = tk.Label(master, text="Clue: " + self.clue, font=14)
         self.label.pack()
         # The screen pop up size
-        self.canvas = tk.Canvas(master, width=400, height=300)
+        self.canvas = tk.Canvas(master, width=500, height=300)
         self.canvas.pack()
         # updates the display
         self.update_display()
-
+        # blank space to enter word
         self.entry = tk.Entry(master)
         self.entry.pack()
         # The guess one word button
@@ -154,8 +154,7 @@ class HangmanGUI:
         self.label.config(text="\nAttempts left: {}\nCurrent word: {}\nClue: {}".format(
             self.attempts, current_word_display, self.clue))
         self.canvas.delete("all")
-        self.canvas.create_text(150, 150, text=draw_hangman(self.attempts), font=("Ariel", 14), anchor="center")
-
+        self.canvas.create_text(220, 140, text=draw_hangman(self.attempts), font=("Ariel", 14), anchor="center")
 
     def make_guess(self):
         guess = self.entry.get().lower()
@@ -181,7 +180,6 @@ class HangmanGUI:
 
         self.update_display()
 
-
     # If you win sends out congrats message if lost send out the word. pops up a box if you want to play again
     def end_game(self, win):
         if win:
@@ -191,8 +189,9 @@ class HangmanGUI:
         self.master.destroy()
 
 
-# runs the loop for the window 
+# runs the loop for the window
 if __name__ == "__main__":
     root = tk.Tk()
     hangman_gui = HangmanGUI(root)
     root.mainloop()
+
