@@ -34,8 +34,8 @@ The button to guess the word is in the red box below.
 ![word](https://github.com/moktanna/it3038c-scripts/assets/142691046/7fc182d8-cdfa-4dcb-b1b6-6d5190fd4cce)
 
 **Ops wrong word**
+![wrong word](https://github.com/moktanna/it3038c-scripts/assets/142691046/e0045dae-da32-4dbe-8051-b78038ce3f1c)
 
-![word](https://github.com/moktanna/it3038c-scripts/assets/142691046/a6f7c7e4-df93-42cb-bd20-f9d4cc883020)
 
 Good job you got the right word. Both pop-up screens will now close. 
 ![right word](https://github.com/moktanna/it3038c-scripts/assets/142691046/2eb75dd1-d80c-4425-af47-7ae167b61412)
