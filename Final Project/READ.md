@@ -1,6 +1,6 @@
-## Final Project: Hangman Game by Neha Moktan
+# Final Project: Hangman Game by Neha Moktan
 
-# Run the Game
+## Run the Game
 
 Download the file into any location you want. Then cd into the location in the command prompt. Down below I have shown you how to cd into the file which has my Hangman code. 
 
@@ -26,14 +26,14 @@ After that, a pop-up screen will appear and you can start playing the game. You 
 The button to guess the letter is in the red box below. 
 ![letter](https://github.com/moktanna/it3038c-scripts/assets/142691046/3bd2b742-9eb4-4008-86d1-dbd5d16e4824)
 
-Ops wrong letter
+*Ops wrong letter*
 
 ![wrong letter](https://github.com/moktanna/it3038c-scripts/assets/142691046/6cbdfb59-fbab-4814-b598-e6b7103aa687)
 
 The button to guess the word is in the red box below. 
 ![word](https://github.com/moktanna/it3038c-scripts/assets/142691046/7fc182d8-cdfa-4dcb-b1b6-6d5190fd4cce)
 
-Ops wrong word
+*Ops wrong word*
 
 ![word](https://github.com/moktanna/it3038c-scripts/assets/142691046/a6f7c7e4-df93-42cb-bd20-f9d4cc883020)
 
