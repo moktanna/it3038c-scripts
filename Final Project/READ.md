@@ -54,5 +54,7 @@ I found this project to be useful because I was able to apply things I knew from
 I used some links for reference. 
 
 https://codefather.tech/blog/hangman-game-python/
+
 https://www.freecodecamp.org/news/how-to-call-a-function-in-python-def-syntax-example/
+
 https://www.geeksforgeeks.org/self-in-python-class/
