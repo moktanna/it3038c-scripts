@@ -1,0 +1,198 @@
+import random
+import tkinter as tk
+from tkinter import messagebox
+
+
+# Choose random word for the hangman
+
+def choose_word():
+    words_and_clues = dict(
+        # the words and the clues
+        mammal="warm-blooded animals that give birth to live young and nurse them with milk",
+        python="A widely used high-level programming language.",
+        code="A set of instructions that a computer can execute.",
+        challenge="Something that tests one's abilities or resources.",
+        reptile="cold-blooded animals, that have scaly skin, lay eggs.",
+        car="A wheeled motor vehicle used for transportation.",
+        snow="Frozen rain in the form of white flakes.",
+        delirious="In a state of mental confusion or excitement.",
+        nonchalant="Showing a casual lack of concern or indifference.",
+        ambidextrous="Able to use both hands with equal skill.",
+        elbow="The joint between the upper and lower parts of the arm, allowing bending and straightening.",
+        sunflower="A tall plant with large, yellow-rayed flowers and edible seeds.",
+        rabbits="A small, fluffy animal with long ears that hop.",
+        ocean="A vast body of saltwater covering about 71% of Earth's surface.",
+        skydiving="The activity of jumping from an aircraft for fun",
+        sunset="The daily act of light disappearing below the horizon, creating a variety of colors in the sky.",
+        thriller="A type of genre characterized by excitement, suspense, and tension."
+    )
+    chosen_word = random.choice(list(words_and_clues.keys()))
+    return chosen_word, words_and_clues[chosen_word]
+
+
+# displays the blanks of the letters that have not been guessed yet
+
+def display_word(word, guessed_letters):
+    display = ""
+    for letter in word:
+        if letter in guessed_letters:
+            display += letter
+        else:
+            display += "_"
+    return display
+
+
+# There are 6 attempts of guessing the word. So this will display the number of attempts left
+def draw_hangman(attempts):
+    # for every wrong guess it will start drawing the hangman. Like first the head and so on.
+    hangman_graphics = [
+        """
+         -----
+         |   |
+             |
+             |
+             |
+             |
+        """,
+        """
+         -----
+         |   |
+         O   |
+             |
+             |
+             |
+        """,
+        """
+         -----
+         |   |
+         O   |
+         |   |
+             |
+             |
+        """,
+        """
+         -----
+         |   |
+         O   |
+        /|   |
+             |
+             |
+        """,
+        """
+         -----
+         |   |
+         O   |
+        /|\\  |
+             |
+             |
+        """,
+        """
+         -----
+         |   |
+         O   |
+        /|\\  |
+        /    |
+             |
+        """,
+        """
+         -----
+         |   |
+         O   |
+        /|\\  |
+        / \\  |
+             |
+        """
+    ]
+    # Until this does not hit 0 the game will not be over.
+    return hangman_graphics[6 - attempts]
+
+
+class HangmanGUI:
+    def __init__(self, master):
+        # title for the popup
+        self.master = master
+        self.master.title("Hangman Game by Neha Moktan")
+
+        self.word_to_guess, self.clue = choose_word()
+        self.guessed_letters = []
+        self.attempts = 6
+
+        self.label = tk.Label(master, text="Welcome to Hangman!\nClue: " + self.clue, font=12)
+        self.label.pack()
+        # The screen pop up size
+        self.canvas = tk.Canvas(master, width=400, height=300)
+        self.canvas.pack()
+        # updates the display
+        self.update_display()
+
+        self.entry = tk.Entry(master)
+        self.entry.pack()
+        # The guess one word button
+        self.button = tk.Button(master, text="Guess", command=self.make_guess)
+        self.button.pack()
+        # The guess the whole word button
+        self.check_button = tk.Button(master, text="Check Word", command=self.check_word)
+        self.check_button.pack()
+
+    # checks the word and see if it will end the game or not
+    def check_word(self):
+        guessed_word = self.entry.get().lower()
+
+        if guessed_word == self.word_to_guess:
+            self.end_game(True)
+        else:
+            self.attempts -= 1
+            messagebox.showinfo("Incorrect Guess", "Incorrect guess!")
+            if self.attempts == 0:
+                self.end_game(False)
+
+        self.update_display()
+
+    # updates the display and the words + remaining attempts
+    def update_display(self):
+        current_word_display = display_word(self.word_to_guess, self.guessed_letters)
+        self.label.config(text="\nAttempts left: {}\nCurrent word: {}\nClue: {}".format(
+            self.attempts, current_word_display, self.clue))
+        self.canvas.delete("all")
+        self.canvas.create_text(150, 150, text=draw_hangman(self.attempts), font=("Ariel", 14), anchor="center")
+
+
+    def make_guess(self):
+        guess = self.entry.get().lower()
+        # this check the letter and puts the message out accordingly
+        if len(guess) != 1 or not guess.isalpha():
+            messagebox.showinfo("Invalid Input", "Invalid input. Please enter a single letter.")
+            return
+
+        if guess in self.guessed_letters:
+            messagebox.showinfo("Duplicate Guess", "You already guessed that letter. Try again.")
+            return
+
+        self.guessed_letters.append(guess)
+        # this check the word and puts the message out accordingly
+        if guess not in self.word_to_guess:
+            self.attempts -= 1
+            messagebox.showinfo("Incorrect Guess", "Incorrect guess!")
+            if self.attempts == 0:
+                self.end_game(False)
+        else:
+            if "_" not in display_word(self.word_to_guess, self.guessed_letters):
+                self.end_game(True)
+
+        self.update_display()
+
+
+    # If you win sends out congrats message if lost send out the word. pops up a box if you want to play again
+    def end_game(self, win):
+        if win:
+            messagebox.showinfo("Congratulations!", "You guessed the word: {}".format(self.word_to_guess))
+        else:
+            messagebox.showinfo("Out of Attempts", "Out of attempts! The word was: {}".format(self.word_to_guess))
+        self.master.destroy()
+
+
+# runs the loop for the window 
+if __name__ == "__main__":
+    root = tk.Tk()
+    hangman_gui = HangmanGUI(root)
+    root.mainloop()
