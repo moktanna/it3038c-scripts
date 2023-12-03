@@ -34,14 +34,18 @@ The button to guess the word is in the red box below.
 
 ![word](https://github.com/moktanna/it3038c-scripts/assets/142691046/7fc182d8-cdfa-4dcb-b1b6-6d5190fd4cce)
 
+
 **Ops wrong word**
+
 
 ![wrong word](https://github.com/moktanna/it3038c-scripts/assets/142691046/e0045dae-da32-4dbe-8051-b78038ce3f1c)
 
 
 Good job you got the right word. Both pop-up screens will now close. To restart the game go ahead and run the final_project.py file again.
 
+
 ![right word](https://github.com/moktanna/it3038c-scripts/assets/142691046/2eb75dd1-d80c-4425-af47-7ae167b61412)
+
 
 ## Why is it Useful?
 I found this project to be useful because I was able to apply things I knew from the previous game I made. I was able to learn a lot of new things and have fun with it. If I were to add more harder words this game would help someone expand their vocabulary. It can be set up to be easy, medium, or hard depending on what word you put in the **def choose_word():**. It's a very easy and fun way to learn words. 
