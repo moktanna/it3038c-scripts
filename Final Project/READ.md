@@ -31,13 +31,16 @@ The button to guess the letter is in the red box below.
 ![wrong letter](https://github.com/moktanna/it3038c-scripts/assets/142691046/6cbdfb59-fbab-4814-b598-e6b7103aa687)
 
 The button to guess the word is in the red box below. 
+
 ![word](https://github.com/moktanna/it3038c-scripts/assets/142691046/7fc182d8-cdfa-4dcb-b1b6-6d5190fd4cce)
 
 **Ops wrong word**
+
 ![wrong word](https://github.com/moktanna/it3038c-scripts/assets/142691046/e0045dae-da32-4dbe-8051-b78038ce3f1c)
 
 
 Good job you got the right word. Both pop-up screens will now close. To restart the game go ahead and run the final_project.py file again.
+
 ![right word](https://github.com/moktanna/it3038c-scripts/assets/142691046/2eb75dd1-d80c-4425-af47-7ae167b61412)
 
 ## Why is it Useful?
